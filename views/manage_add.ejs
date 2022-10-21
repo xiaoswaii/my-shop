@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Stock Page</title>
+    <script src="/javascripts/manage_add.js"></script>
+    <%- include('./include') %>
+</head>
+<body>
+    <%- include('./header') %>
+		<div class="container">
+			<form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Title">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="price">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" id="amount" placeholder="amount">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="path">Photo Path</label>
+            <input type="text" class="form-control" id="photo_path" placeholder="Photo Path">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick=add()>Add Item</button>
+    	</form>
+		</div>
+    
+    <%- include('./footer') %>
+</body>
+</html>

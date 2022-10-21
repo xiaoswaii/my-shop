@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shop</title>
+    <%- include('./include') %>
+    <script src="/javascripts/shop.js"></script>
+  </head>
+  <body>
+    <%- include('./header') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+              <div class="list-group" id="list-tab" role="tablist">
+                <% for(var i=0; i < list.length; i++) { %>
+                    <a class="list-group-item list-group-item-action active" id="<%=list[i]['stock_title']%>" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home"><%=list[i]['stock_title']%></a>
+                <% } %>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="tab-content" id="nav-tabContent">
+                <% for(var i=0; i < list.length; i++) { %>
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="<%=list[i]['stock_title']%>">
+                    <p>
+                        <span>Price:<%=list[i]['stock_price']%></span><br>
+                        <span>Amount:<%=list[i]['amount']%></span>
+                    </p>
+                </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+    </div>
+    <%- include('./footer') %>
+  </body>
+</html>

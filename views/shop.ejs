@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shop</title>
+    <%- include('./include') %>
+    <script src="/javascripts/shop.js"></script>
+  </head>
+  <body>
+    <%- include('./header') %>
+    <div class="container">
+        <div class="row justify-content-center">
+            <% for(var i=0; i < stock.length; i++) { %>
+                <div class="card mx-2 my-2" style="width: 18rem;">
+                    <img class="card-img-top" src="/images/stock/pants.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title"><%=stock[i]['title']%></h5>
+                      <p class="card-text"><%=stock[i]['description']%></p>
+                      <button onclick="show_detail('<%=stock[i]['_id']%>')" class="btn btn-primary">Detail</button>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <!-- modal -->
+    <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="close_modal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <img class="card-img-top" src="/images/stock/pants.jpg" alt="Card image cap">
+                <span>Price:<span id="price"></span></span><br>
+                <span>Description:<span id="description"></span></span><br>
+                <span>Left Amount:<span id="left_amount"></span></span><br>
+                Purchase Amount: <input type="number" max=100 min=1 id="purchase_amount">
+                <input type="hidden" id="buy_stock_id" val="">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="close_modal()">Close</button>
+              <button type="button" class="btn btn-primary" onclick="buy()">Buy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%- include('./footer') %>
+  </body>
+</html>
